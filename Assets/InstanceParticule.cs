@@ -7,11 +7,19 @@ public class InstanceParticule : MonoBehaviour
     public GameObject particule;
     public GameObject myParticule;
     public int counter = 0; //créé un compteur pour géré la creation des objet.
-    public int rate = 60; // créé un maximul , déclancher pour notre fonction.
+    public int rate = 20; // créé un maximum , déclancher pour notre fonction.
     public float myparticulx = 0f;
     public float myparticuly = 0f;
+    public float speed = 8f;
     public GameObject right;
-    //public static void Destroy(Object obj, float t = 2.0f);
+    
+     
+    //public int My_DT = 1; // Declaration pour faire un Delta Time du cycle de vie.
+    //public float More_T = 1f;  // Declaration pour faire un Temps suplementaire variable.
+    
+
+
+    //public static void D1estroy(Object obj, float t = 2.0f);
 
     // faire des particules en continue * fait
 
@@ -26,8 +34,9 @@ public class InstanceParticule : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
 
-        transform.position = Random.insideUnitCircle * 105;
+
 
     }
 
@@ -35,27 +44,32 @@ public class InstanceParticule : MonoBehaviour
     void Update()
     {
         // faire des particules en continue *voir une autre solution avec 2 élément uniquement.
-       myParticule = Instantiate(particule, new Vector2(0, 0), Quaternion.identity) ;
-        myParticule.transform.position = new Vector2(myparticulx, myparticuly);
-        myparticulx = (myparticulx) * Time.time;
-        myparticuly = (myparticuly) * (Time.time);    
+        //  myParticule = Instantiate(particule, new Vector2(0, 0), Quaternion.identity) ;
+        //myParticule.transform.position = new Vector2(myparticulx, myparticuly);
+     
+
+    
         
-      
+            myParticule = Instantiate(particule, new Vector2(myparticulx, myparticuly), Quaternion.identity);
+            myParticule.transform.position = Random.insideUnitCircle * 5;
+        
 
-            /*
-             * Le clone est bon endroit ,à le bon parent , et la bonne trajectoire.
-             * ici le parent est bon , mais aucune trajectoire définie!
-             * 
-             * 
-             * 
-             *  controle le nombre de particules créés 
-             * 
-             */
 
-            // appel et creation de la fonction de calcul des particules:
-            // la fonction :
-            // if (counter % rate == 0){ nianianiania;}
-        }
+
+        /*
+         * Le clone est bon endroit ,à le bon parent , et la bonne trajectoire.
+         * ici le parent est bon , mais aucune trajectoire définie!
+         * 
+         * 
+         * 
+         *  controle le nombre de particules créés 
+         * 
+         */
+
+        // appel et creation de la fonction de calcul des particules:
+        // la fonction :
+        // if (counter % rate == 0){ nianianiania;}
+    }
 
 
     }
